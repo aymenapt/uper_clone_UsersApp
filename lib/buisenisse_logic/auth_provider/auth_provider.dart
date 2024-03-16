@@ -17,8 +17,6 @@ class AuthService with ChangeNotifier {
 
   Client? get client => _client;
 
- 
-
   String _id = "";
 
   Future<void> registerWithEmailAndPassword({
@@ -55,7 +53,6 @@ class AuthService with ChangeNotifier {
         DatabaseReference driversRef =
             FirebaseDatabase.instance.ref().child("users");
         driversRef.child(authResult.user!.uid).set(driverMap).then((_) {
-
           // Data is successfully written to the database, notify listeners again.
 
           notifyListeners();
